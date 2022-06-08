@@ -15,19 +15,10 @@
         <th>Calories</th>
     </tr>
     <c:forEach items="${meals}" var="meal">
-        <tr>
+        <tr style="color: ${meal.excess?"red":"green"}">
             <td>${meal.stringDateTime}</td>
             <td>${meal.description}</td>
-            <c:if test="${meal.excess == true}">
-                <td style="color: red">
-                        ${meal.calories}
-                </td>
-            </c:if>
-            <c:if test="${meal.excess != true}">
-                <td style="color: green">
-                        ${meal.calories}
-                </td>
-            </c:if>
+            <td>${meal.calories}</td>
         </tr>
     </c:forEach>
 </table>
