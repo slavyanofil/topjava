@@ -11,5 +11,5 @@ public interface Storage {
 
     void delete(int id);
 
-    void update(int id);
+    void update(Meal meal);
 }
