@@ -18,17 +18,17 @@ import java.util.stream.Collectors;
 
 public class MealsUtil {
     public static final int DEFAULT_CALORIES_PER_DAY = 2000;
-    private static final User user1 = new User(1, "User1", "user1@ya.ru", "***", new Role[]{Role.USER});
-    private static final User user2 = new User(2, "User2", "mybox@gmail.com", "***", new Role[]{Role.USER});
+    public static final User user1 = new User(1, "User1", "user1@ya.ru", "***", Role.USER);
+    public static final User user2 = new User(2, "User2", "mybox@gmail.com", "***", Role.USER);
 
     public static final List<Meal> meals = Arrays.asList(
-            new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 10, 0), "Завтрак", 500, user1),
-            new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 13, 0), "Обед", 1000, user1),
-            new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 20, 0), "Ужин", 500, user1),
-            new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 0, 0), "Еда на граничное значение", 100, user2),
-            new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 10, 0), "Завтрак", 1000, user2),
-            new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 13, 0), "Обед", 500, user2),
-            new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 20, 0), "Ужин", 410, user2)
+            new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 10, 0), "Завтрак", 500),
+            new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 13, 0), "Обед", 1000),
+            new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 20, 0), "Ужин", 500),
+            new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 0, 0), "Еда на граничное значение", 100),
+            new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 10, 0), "Завтрак", 1000),
+            new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 13, 0), "Обед", 500),
+            new Meal(LocalDateTime.of(2020, Month.JANUARY, 31, 20, 0), "Ужин", 410)
     );
 
     public static List<MealTo> getTos(Collection<Meal> meals, int caloriesPerDay) {

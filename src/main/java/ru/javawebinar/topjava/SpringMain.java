@@ -4,6 +4,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.User;
+import ru.javawebinar.topjava.repository.MealRepository;
+import ru.javawebinar.topjava.repository.inmemory.InMemoryMealRepository;
+import ru.javawebinar.topjava.util.MealsUtil;
 import ru.javawebinar.topjava.web.user.AdminRestController;
 
 import java.util.Arrays;
@@ -16,5 +19,9 @@ public class SpringMain {
             AdminRestController adminUserController = appCtx.getBean(AdminRestController.class);
             adminUserController.create(new User(null, "userName", "email@mail.ru", "password", Role.ADMIN));
         }
+        MealRepository repository = new InMemoryMealRepository();
+        repository.delete(100, MealsUtil.user1);
+        System.out.println(repository.getAll(MealsUtil.user1));
+        System.out.println(repository.getAll(MealsUtil.user2));
     }
 }
